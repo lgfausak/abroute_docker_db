@@ -10,6 +10,8 @@
 #
 set -e
 
+echo "TOP is " $@ X $*
+
 . /usr/local/etc/abenv
 
 # fix permissions and ownership of ${PG_HOME}
@@ -119,6 +121,6 @@ psql -Upostgres -h $(hostname -i) -f /usr/local/etc/PG.sql ${DB_NAME}
 
 echo "Done with initialization ... database "$DB_NAME" is ready to use"
 
-echo "chaining abadm.py" "$@"
+echo "chaining abadm.py" $@ X $*
 
-exec "abadm.py" $@
+exec "abadm.py" $*
