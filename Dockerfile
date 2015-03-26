@@ -17,4 +17,3 @@ VOLUME ["/etc/postgresql"]
 VOLUME ["/run/postgresql"]
 
 ENTRYPOINT "abinit"
-CMD ["8000"]
