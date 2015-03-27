@@ -121,5 +121,4 @@ echo "Done with initialization ... database "$DB_NAME" is ready to use"
 
 echo "chaining abadm.py" "$@"
 
-#exec "abadm.py" "$@"
-"abadm.py" "$@"
+exec "abadm.py" "$@"
