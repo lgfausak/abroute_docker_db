@@ -16,4 +16,4 @@ VOLUME ["/var/lib/postgresql"]
 VOLUME ["/etc/postgresql"]
 VOLUME ["/run/postgresql"]
 
-ENTRYPOINT "abinit"
+ENTRYPOINT [ "abinit" ]
