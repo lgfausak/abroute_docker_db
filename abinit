@@ -21,6 +21,14 @@ mkdir -p -m 0755 /run/postgresql /run/postgresql/${PG_VERSION}-main.pg_stat_tmp
 chown -R postgres:postgres /run/postgresql
 chmod g+s /run/postgresql
 
+#
+# make sure the etc directory exists
+#
+if [ ! -d ${PG_SRC_CONF_DIR}/${PG_VERSION} ]; then
+  (cd ${PG_SRC_CONF_DIR}; tar xzvf ${PG_SRC_CONF})
+  chown -R postgres:postgres ${PG_SRC_CONF_DIR}
+fi
+
 # disable ssl
 sed 's/ssl = true/#ssl = true/' -i ${PG_CONFDIR}/postgresql.conf
 
