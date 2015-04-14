@@ -132,4 +132,11 @@ echo "Done with initialization ... database "$DB_NAME" is ready to use"
 
 echo "chaining abadm.py" "$@"
 
+# this is our signal that we are done, if the wait type is "file"
+if [ "${DEFAULT_WAIT_TYPE}" == "file" ]; then
+  touch "${DEFAULT_WAIT_FILE}"
+fi
+
+
+# either way, we start up a local web service and just sit there. this is for the wait type "ethernet"
 exec "abadm.py" "$@"
